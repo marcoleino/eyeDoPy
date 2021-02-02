@@ -17,8 +17,6 @@ net = LYTNet()
 net.load_state_dict(torch.load(MODEL_PATH, map_location=torch.device('cpu'))) 
 net.eval()
 
-loss_fn = my_loss
-
 input_tensor = torch.rand(1, 3, 576, 768)
 # conversion
 script_model = torch.jit.trace(net,input_tensor)
