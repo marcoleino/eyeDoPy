@@ -5,7 +5,7 @@ The implementation of the CNN done is explained in this paper: https://arxiv.org
 ### Introduction
 In this project we train a neural network called LytNet, then we convert the model from Pytorch to TorchScript and develop an Android App that use it to recognize pedestrian traffic light. The following image rappresent the approach followed and the related path options.
 
-![](images/path.jpg)
+![](path.png)
 
 To train and test the CNN we have used Pedestrian-Traffic-Lights (PTL) that is a high-quality image dataset of street intersections, created for the detection of pedestrian traffic lights and zebra crossings. Images have variation in weather, position and orientation in relation to the traffic light and zebra crossing, and size and type of intersection. To download the dataset visit ImVisible project (link above).
 
@@ -47,10 +47,11 @@ This is the structure of LytNet:
 ![](Model/structure.png)
 
 ### Conversion
-We wrote the code that convert Pytorch model to TorchScript and then we have integrated it inside Android. To see how we properly pre-process an image before sending it to the network in TorchScript look at the PreProcess function inside of Classifier in the Android App.
+We wrote the code that convert Pytorch model to TorchScript and then we have integrated it inside Android. 
 
-The network need structure that need transposed shape so we have switched height/width/channel to channel/height/width with a for loop and then we have flatted the array.
+The network need structure that need transposed shape so we have switched height/width/channel to channel/height/width with Numpy transpose function. See fromPTtoPTScript.py for more information about.
+
 ## Application
-We developed an Android Application that use the model converted.
+We developed an Android Application that use the model converted. To see how we properly pre-process an image before sending it to the network in TorchScript look at the PreProcess function inside of Classifier in the Android App, where we make our own transpose algorithm.
 
 To use the application you can download the code and open it inside Android Studio.
