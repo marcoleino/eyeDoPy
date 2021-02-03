@@ -25,13 +25,9 @@ std=[66.32028460114392, 65.09469952002551, 65.67726614496246]
 Classes are as follows:
 
 0: Red
-
 1: Green
-
 2: Countdown Green
-
 3: Countdown Blank
-
 4: None
 
 Here are the precisions of networks for each class:
