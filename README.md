@@ -37,7 +37,7 @@ Here are the precisions of networks for each class:
 Base Precision | 0.97 | 0.94 | 0.99 | 0.90 | 0.76
 Base Opt Precision | 0.95 | 0.94 | 0.98 | 0.91 | 0.75
 Base Opt Quantized Precision | 0.96 | 0.92 | 0.99 | 0.89 | 0.78
-Normalized Precision | 0 | 0 | 0 | 0 | 0
+Normalized Precision | 0.92 | 0.96 | 0.97 | 0.91 | 0.45
 Normalized Opt Precision | 0.93 | 0.91 | 0.94 | 0.91 | 0.50
 
 Opt stands for Optimized for Mobile.
