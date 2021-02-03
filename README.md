@@ -2,7 +2,7 @@
 
 The implementation of the CNN done is explained in this paper: https://arxiv.org/abs/1907.09706. The project on which we have based is ImVisible: https://github.com/samuelyu2002/ImVisible
 
-### Introduction
+## Introduction
 In this project we train a neural network called LytNet, then we convert the model from Pytorch to TorchScript and develop an Android App that use it to recognize pedestrian traffic light. The following image rappresent the approach followed and the related path options.
 
 ![](path.png)
