@@ -46,7 +46,7 @@ Our network is adapted from MobileNet, with a larger input size of 768x576 desig
 This is the structure of LytNet:
 ![](Model/structure.png)
 
-### Conversion
+## Conversion
 We wrote the code that convert Pytorch model to TorchScript and then we have integrated it inside Android. 
 
 The network need structure that need transposed shape so we have switched height/width/channel to channel/height/width with Numpy transpose function. See fromPTtoPTScript.py for more information about.
