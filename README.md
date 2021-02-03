@@ -9,7 +9,7 @@ In this project we train a neural network called LytNet, then we convert the mod
 
 To train and test the CNN we have used Pedestrian-Traffic-Lights (PTL) that is a high-quality image dataset of street intersections, created for the detection of pedestrian traffic lights and zebra crossings. Images have variation in weather, position and orientation in relation to the traffic light and zebra crossing, and size and type of intersection. To download the dataset visit ImVisible project (link above).
 
-### Training
+## Training
 
 |   | Training | Validation | Testing | Total
 |---|----------|------------|---------|-------
@@ -20,7 +20,7 @@ Use these stats for image normalization:
 mean = [120.56737612047593, 119.16664454573734, 113.84554638827127]  
 std=[66.32028460114392, 65.09469952002551, 65.67726614496246]
 
-## Labels
+### Labels
 
 Classes are as follows:
 
@@ -52,6 +52,4 @@ We wrote the code that convert Pytorch model to TorchScript and then we have int
 The network need structure that need transposed shape so we have switched height/width/channel to channel/height/width with Numpy transpose function. See fromPTtoPTScript.py for more information about.
 
 ## Application
-We developed an Android Application that use the model converted. To see how we properly pre-process an image before sending it to the network in TorchScript look at the PreProcess function inside of Classifier in the Android App, where we make our own transpose algorithm.
-
-To use the application you can download the code and open it inside Android Studio.
+We developed an Android Application that use the model converted. You can find the repo here: https://github.com/marcoleino/eyeDo_Android/tree/master
