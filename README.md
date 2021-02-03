@@ -39,10 +39,12 @@ Here are the precisions of networks for each class:
 |         | Red | Green | Countdown Green | Countdown Blank | None
 |---------|-----|-------|-----------------|-----------------|--------|
 Base Precision | 0.97 | 0.94 | 0.99 | 0.90 | 0.76
-Base Optimized Precision | 0.95 | 0.94 | 0.98 | 0.91 | 0.75
-Base Optimized Quantized Precision | 0.96 | 0.92 | 0.99 | 0.89 | 0.78
+Base Opt Precision | 0.95 | 0.94 | 0.98 | 0.91 | 0.75
+Base Opt Quantized Precision | 0.96 | 0.92 | 0.99 | 0.89 | 0.78
 Normalized Precision | 0 | 0 | 0 | 0 | 0
-Normalized Optimized Precision | 0.93 | 0.91 | 0.94 | 0.91 | 0.50
+Normalized Opt Precision | 0.93 | 0.91 | 0.94 | 0.91 | 0.50
+
+Opt stand for Optimized for Mobile.
 
 
 Our network is adapted from MobileNet, with a larger input size of 768x576 designed for image classification tasks that involve a smaller object within the image (such as a traffic light). Certain layers from MobileNet v2 were removed for the network to run at a near real-time frame rate (21 fps), but still maintain high accuracy. You can find LytNet structure in the readme at ImVisible repo.
