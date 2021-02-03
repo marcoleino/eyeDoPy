@@ -41,10 +41,7 @@ Here are the precisions of networks for each class:
 Base Precision | 0.955 | 0.945 | 0.985 | 0.929 | 0.774
 Normalized Precision | 0 | 0 | 0 | 0 | 0
 
-Our network is adapted from MobileNet, with a larger input size of 768x576 designed for image classification tasks that involve a smaller object within the image (such as a traffic light). Certain layers from MobileNet v2 were removed for the network to run at a near real-time frame rate (21 fps), but still maintain high accuracy. 
-
-This is the structure of LytNet:
-![](Model/structure.png)
+Our network is adapted from MobileNet, with a larger input size of 768x576 designed for image classification tasks that involve a smaller object within the image (such as a traffic light). Certain layers from MobileNet v2 were removed for the network to run at a near real-time frame rate (21 fps), but still maintain high accuracy. You can find LytNet structure in the readme at ImVisible repo.
 
 ## Conversion
 We wrote the code that convert Pytorch model to TorchScript and then we have integrated it inside Android. 
