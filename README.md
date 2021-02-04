@@ -1,13 +1,13 @@
-# eyeDo: an Android Application for the Visually Impaired that use LytNet Neural Network to recognize Pedestrian Traffic Light
+# eyeDo: an Android App for the Visually Impaired that uses a Neural Network to recognize Pedestrian Traffic Light in real-time
 
-The implementation of the CNN done is explained in this paper: https://arxiv.org/abs/1907.09706. The project on which we have based is ImVisible: https://github.com/samuelyu2002/ImVisible
+The dataset and model we used for our project is based on the ones used for the project "ImVisible", explained at this link: https://arxiv.org/abs/1907.09706. 
 
 ## Introduction
-In this project we train a neural network called LytNet, then we convert the model from Pytorch to TorchScript and develop an Android App that use it to recognize pedestrian traffic light. The following image rappresent the approach followed and the related path options.
+In this project we trained a model called LytNet, then we converted the model from Pytorch to TorchScript and developed an Android App that uses it to recognize the state of pedestrian traffic lights. The following image represents the approach we followed and the related path options.
 
 ![](path.png)
 
-To train and test the CNN we have used Pedestrian-Traffic-Lights (PTL) that is a high-quality image dataset of street intersections, created for the detection of pedestrian traffic lights and zebra crossings. Images have variation in weather, position and orientation in relation to the traffic light and zebra crossing, and size and type of intersection. To download the dataset visit ImVisible project (link above).
+To train and test the LytNet we have used "Pedestrian-Traffic-Lights (PTL)", which is a high-quality image dataset of street intersections, created for this problem of image classification. Images have variations in weather, position and orientation in relation to the traffic light. To download the dataset you can visit the ImVisible project (link above).
 
 ## Training
 
@@ -43,12 +43,12 @@ Normalized Opt Precision | 0.93 | 0.91 | 0.94 | 0.91 | 0.50
 Opt stands for Optimized for Mobile.
 
 
-Our network is adapted from MobileNet, with a larger input size of 768x576 designed for image classification tasks that involve a smaller object within the image (such as a traffic light). Certain layers from MobileNet v2 were removed for the network to run at a near real-time frame rate (21 fps), but still maintain high accuracy. You can find LytNet structure in the readme at ImVisible repo.
+The network model is adapted from a MobileNetV2, with a larger input size of 768x576 designed for a image classification task that involves a smaller object within the image (such as a traffic light). 
 
 ## Conversion
-We wrote the code that convert Pytorch model to TorchScript and then we have integrated it inside Android. 
+The code that converts a Pytorch model to a TorchScript one is the file "fromPTtoPTScript.py". 
 
-The network need structure that need transposed shape so we have switched height/width/channel to channel/height/width with Numpy transpose function. See fromPTtoPTScript.py for more information about.
+The network needs a [batch, channels, height, width] shape. See fromPTtoPTScript.py for more information about it.
 
 ## Application
 We developed an Android Application that use the model converted. You can find the repo here: https://github.com/marcoleino/eyeDo_Android/tree/master
