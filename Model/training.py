@@ -22,7 +22,6 @@ valid_img_dir = '/home/user/Desktop/eyeDoPy/PTL_Dataset_768x576/'
 save_path = '/home/user/Desktop/eyeDoPy/Model/'
 
 
-
 train_dataset = TrafficLightDataset(csv_file = train_file_dir, img_dir = train_img_dir)
 valid_dataset = TrafficLightDataset(csv_file = valid_file_dir, img_dir = valid_img_dir)
 

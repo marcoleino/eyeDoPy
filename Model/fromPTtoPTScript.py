@@ -17,8 +17,6 @@ net = LYTNet()
 net.load_state_dict(torch.load(MODEL_PATH, map_location=torch.device('cpu'))) 
 net.eval()
 
-loss_fn = my_loss
-
 input_tensor = torch.rand(1, 3, 576, 768)
 # conversion
 script_model = torch.jit.trace(net,input_tensor)
@@ -27,7 +25,7 @@ script_model = torch.jit.trace(net,input_tensor)
 #script_model = optimize_for_mobile(script_model)
 
 # saving
-script_model.save(save_path + "final_weights_script")
+script_model.save(save_path + "not_optimized_float32.pt")
 
 
 #SANITY CHECK

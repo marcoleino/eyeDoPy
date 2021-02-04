@@ -61,7 +61,6 @@ start_time = time.time()
 with torch.no_grad():
     
     for i, data in enumerate(dataloader):
-        print(data['image'].type)
         images = data['image'].type(torch.FloatTensor)
         mode = data['mode']
         points = data['points']

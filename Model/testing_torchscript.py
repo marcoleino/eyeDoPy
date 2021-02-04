@@ -8,11 +8,9 @@ from dataset import TrafficLightDataset
 import matplotlib.pyplot as plt
 import numpy as np
 
-cuda_available = torch.cuda.is_available()
-
 test_file_loc = '/home/user/Desktop/eyeDoPy/Annotations/testing_file.csv'
 test_image_directory = '/home/user/Desktop/eyeDoPy/PTL_Dataset_768x576/'
-MODEL_PATH = '/home/user/Desktop/eyeDoPy/Model/final_weights_script'
+MODEL_PATH = '/home/user/Desktop/eyeDoPy/Model/normalized_nonopt_float32.pt'
 
 dataset = TrafficLightDataset(csv_file = test_file_loc, img_dir = test_image_directory)
 dataloader = DataLoader(dataset, batch_size=1, shuffle=False, num_workers=2)
@@ -21,9 +19,6 @@ dataloader = DataLoader(dataset, batch_size=1, shuffle=False, num_workers=2)
 net = LYTNet()
 net = torch.jit.load(MODEL_PATH)
 net.eval()
-
-if cuda_available:
-    net = net.cuda()
 
 loss_fn = my_loss
 
@@ -60,16 +55,10 @@ start_time = time.time()
 with torch.no_grad():
     
     for i, data in enumerate(dataloader):
-        print(data['image'].type)
         images = data['image'].type(torch.FloatTensor)
         mode = data['mode']
         points = data['points']
         blocked = data['block'] #tag for blocked zebra crossing
-        
-        if cuda_available:
-            images = images.cuda()
-            mode = mode.cuda()
-            points = points.cuda()
             
         pred_classes, pred_direc = net(images)
         _, predicted = torch.max(pred_classes, 1)
